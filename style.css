@@ -1,37 +1,132 @@
 .entire-page {
-    width: 375px;
-    height: 667px;
-    background-color: yellow;
+  width: 375px;
+  height: 667px;
+}
+
+.header {
+  width: 375px;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  box-shadow: 0px 4px 6px 0px #0000000d;
+  top: 0;
+  left: 0;
+}
+
+.header img {
+  width: 75px;
+  height: 53px;
+  margin-left: 22px;
+}
+
+ion-icon {
+  font-size: 45px;
+  margin-right: 22px;
+}
+
+.messages {
+  height: 507px;
+  width: 375px;
+  background-color: #f3f3f3;
+  margin-top: 80px;
+}
+
+.enterRoom {
+  width: 375px;
+  height: 40px;
+  background-color: #dcdcdc;
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  width: 375px;
+  height: 80px;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  box-shadow: 0px -4px 6px 0px #0000000d;
+}
+
+#writeMessage {
+  height: 30px;
+  width: 100%;
+  margin-left: 5px;
+  border: solid;
+  border-width: 1px;
+  border-color: #c1bdbd;
+}
+
+#writeMessage::placeholder {
+  color: black;
+  opacity: 1;
+}
+
+.orange {
+  color: orange;
+}
+
+.red {
+  color: red;
+  -webkit-animation-name: shake;
+  -webkit-animation-duration: 0.5s;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.black {
+  color: black;
+}
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
   }
-  
-  .header {
-    width: 375px;
-    height: 80px;
-    background-color: red;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    box-shadow: 0px 4px 6px 0px #0000000d;
-    top: 0;
-    left: 0;
+  10% {
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
   }
-  
-  .header img {
-    width: 75px;
-    height: 53px;
-    margin-left: 22px;
+  20% {
+    -webkit-transform: translate(-3px, 0px) rotate(1deg);
   }
-  
-  ion-icon {
-    font-size: 45px;
-    margin-right: 22px;
+  30% {
+    -webkit-transform: translate(0px, 2px) rotate(0deg);
   }
-  
-  .messages {
-    height: 507px;
-    width: 375px;
-    background-color: #e5e5e5;
-    margin-top: 80px;
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
   }
-  
+  50% {
+    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(2px, 1px) rotate(-1deg);
+  }
+  80% {
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    -webkit-transform: translate(2px, 2px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+ion-icon:hover {
+  cursor: pointer;
+  color: lightgray;
+}
+
+.message {
+  width: 375px;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}

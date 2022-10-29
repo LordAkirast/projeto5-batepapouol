@@ -25,6 +25,20 @@
       <section class="messages"></section>
 
       <!---fim div section-->
+      <!---inicio div footer-->
+      <footer class="footer">
+        <input
+          type="text"
+          id="writeMessage"
+          name="textWrite"
+          maxlength="140"
+          size="10"
+          placeholder="Escreva aqui..."
+        />
+        <p id="count">0</p>
+        <ion-icon onclick="send()" name="paper-plane-outline"></ion-icon>
+      </footer>
+      <!---fim div footer-->
     </div>
 
     <!---fim div entire-page-->
@@ -35,7 +49,8 @@
     header: Uma div de header da página. Ela deverá ser fixa.
     
     section: Uma div para as mensagens, enviadas, recebidas e etc... inicia depois do header e finaliza antes do footer, deve scrollar infinitamente
-  
+      
+    footer: Uma div para a parte de enviar msg. tem um input e um icon dentro.
   -->
 
     <!---script de icons-->
