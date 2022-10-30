@@ -50,6 +50,7 @@ ion-icon {
   align-items: center;
   display: flex;
   box-shadow: 0px -4px 6px 0px #0000000d;
+  position: fixed;
 }
 
 #writeMessage {

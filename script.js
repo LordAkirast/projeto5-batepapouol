@@ -7,6 +7,9 @@ let elemento; ///variavel para usar de elemento nos queryselector
 let hour; ///variavel para poder trabalhar com as horas locais
 let charCount; ///variavel para contar quantos caracteres foram digitados
 let count; ///variavel para me deixar alterar o innerhtml do P classe count
+let getMsg; ///variavel pra pegar mensagem do servidor
+const elementoQueQueroQueApareca = document.querySelector(".footer"); ////variavel pra scrollar para baixo
+let urlGet = "https://mock-api.driven.com.br/api/v6/uol/messages"; ///variavel para amazenar a url
 setInterval(() => {
   currentDate = new Date().toJSON().slice(11, 19);
 }, 1000);
@@ -120,15 +123,44 @@ function send() {
   elemento = document.querySelector("section");
   let wroteMsg = (elemento.innerHTML += `<p class="message">( ${currentDate} ) ${charCount}</p>`);
   document.querySelector("input").value = "";
+  let msg = wroteMsg.replace('<p class="message>', "");
+  msg = wroteMsg.replace("</p>", "");
+
+  let wroteMsgr = {
+    from: `${userName}`,
+    to: "Todos",
+    text: `${msg}`,
+    type: "message" // ou "private_message" para o bônus
+  };
+  axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", wroteMsgr);
+  elementoQueQueroQueApareca.scrollIntoView();
 }
 
-////duvida. como enviar exatamente para o servidor a mensagem e como pegar ela do servidor?
-///axios.post('https://mock-api.driven.com.br/api/v6/uol/messages')
+function getMessages() {
+  getMsg = axios.get(urlGet);
+  elemento.innerHTML += `<p class="message">( ${currentDate} ) ${getMsg}</p>`;
+  elementoQueQueroQueApareca.scrollIntoView();
 
-//{
-//	from: `${userName}`,
-//	to: "todos",
-//	text: "mensagem digitada",
+  const promessa = axios.get(urlGet);
+  promessa.then(processarResposta);
+
+  function processarResposta(resposta) {
+    console.log(resposta.data);
+  }
+}
+
+////parte que fica verificando se a pessoa ainda tá na sala
+setInterval(() => {
+  manterConexao();
+}, 5000);
+
+function manterConexao() {
+  let aliexpress = {
+    name: `${userName}`
+  };
+  axios.get("https://mock-api.driven.com.br/api/v6/uol/status", aliexpress);
+}
+
 //	type: "message" // ou "private_message" para o bônus
 //}
 
